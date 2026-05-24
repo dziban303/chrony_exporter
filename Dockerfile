@@ -1,14 +1,15 @@
 ARG ARCH="amd64"
 ARG OS="linux"
 FROM quay.io/prometheus/busybox-${OS}-${ARCH}:latest
-LABEL maintainer="Ben Kochie <superq@gmail.com>"
+LABEL org.opencontainers.image.maintainer="Dziban Molniya <dziban303@gmail.com>"
+LABEL org.opencontainers.image.url="https://github.com/dziban303/chronyx"
 LABEL org.opencontainers.image.source="https://github.com/SuperQ/chrony_exporter"
 
 ARG ARCH="amd64"
 ARG OS="linux"
-COPY .build/${OS}-${ARCH}/chrony_exporter /bin/chrony_exporter
+COPY .build/${OS}-${ARCH}/chronyx /bin/chronyx
 COPY LICENSE                                /LICENSE
 
 USER       nobody
-ENTRYPOINT ["/bin/chrony_exporter"]
+ENTRYPOINT ["/bin/chronyx"]
 EXPOSE     9123
