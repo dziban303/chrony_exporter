@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.licenses="Apache-2.0"
 ARG ARCH="amd64"
 ARG OS="linux"
 COPY .build/${OS}-${ARCH}/chronyx /bin/chronyx
-COPY LICENSE                                /LICENSE
+COPY LICENSE /LICENSE
 
 USER       nobody
 ENTRYPOINT ["/bin/chronyx"]
