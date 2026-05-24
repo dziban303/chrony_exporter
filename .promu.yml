@@ -3,7 +3,7 @@ go:
   # .circleci/config.yml should also be updated.
   version: 1.26
 repository:
-  path: github.com/superq/chrony_exporter
+  path: github.com/dziban303/chronyx
 build:
   ldflags: |
     -X github.com/prometheus/common/version.Version={{.Version}}

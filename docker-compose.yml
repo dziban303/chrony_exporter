@@ -1,10 +1,10 @@
 ---
 version: '3'
 services:
-  chrony-exporter:
-    image: quay.io/superq/chrony-exporter:latest
+  chronyx:
+    image: ghcr.io/dziban303/chronyx:latest
     pull_policy: always
-    container_name: chrony_exporter
+    container_name: chronyx
     command:
       - '--chrony.address=host.docker.internal:323'
       - '--collector.sources'

@@ -18,7 +18,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/superq/chrony_exporter/collector"
+	"github.com/dziban303/chronyx/collector"
 
 	kingpin "github.com/alecthomas/kingpin/v2"
 	"github.com/prometheus/client_golang/prometheus"
@@ -92,12 +92,12 @@ func main() {
 	flag.AddFlags(kingpin.CommandLine, promslogConfig)
 	kingpin.CommandLine.UsageWriter(os.Stdout)
 	kingpin.HelpFlag.Short('h')
-	kingpin.Version(version.Print("chrony_exporter"))
+	kingpin.Version(version.Print("chronyx"))
 	kingpin.Parse()
 
 	logger = promslog.New(promslogConfig)
-	logger.Info("Starting chrony_exporter", "version", version.Info())
-	prometheus.MustRegister(versioncollector.NewCollector("chrony_exporter"))
+	logger.Info("Starting chronyx", "version", version.Info())
+	prometheus.MustRegister(versioncollector.NewCollector("chronyx"))
 
 	exporter := collector.NewExporter(conf, logger)
 	prometheus.MustRegister(exporter)
@@ -105,7 +105,7 @@ func main() {
 	http.Handle(*metricsPath, promhttp.Handler())
 	if *metricsPath != "/" && *metricsPath != "" {
 		landingConfig := web.LandingConfig{
-			Name:        "Chrony Exporter",
+			Name:        "Chronyx",
 			Description: "Prometheus Exporter for Chrony NTP",
 			Version:     version.Info(),
 			Links: []web.LandingLinks{

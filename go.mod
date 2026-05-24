@@ -1,4 +1,4 @@
-module github.com/superq/chrony_exporter
+module github.com/dziban303/chronyx
 
 go 1.25.0
 
