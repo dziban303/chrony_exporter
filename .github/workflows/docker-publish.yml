@@ -31,8 +31,6 @@ jobs:
             arch: amd64
           - os: linux
             arch: arm64
-          - os: linux
-            arch: armv7
     permissions:
       contents: read
       packages: write
